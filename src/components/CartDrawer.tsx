@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, CheckCircle2, Flame, Sparkles } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, CheckCircle2, Flame, Sparkles, MessageCircle } from 'lucide-react';
 import { CartItem } from '../types';
 
 interface CartDrawerProps {
@@ -42,6 +42,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     setCheckoutComplete(false);
     onClearCart();
     onClose();
+  };
+
+  const handleWhatsAppOrder = () => {
+    const itemsText = cartItems
+      .map((item) => `• ${item.quantity}x ${item.meal.name} ($${(item.meal.price * item.quantity).toFixed(2)})`)
+      .join('\n');
+    const message = `Hello Fit Feast Kitchen! I'd like to place an order via WhatsApp:\n\n*Items Ordered:*\n${itemsText}\n\n*Subtotal:* $${subtotal.toFixed(2)}\n*Delivery:* $${deliveryFee.toFixed(2)}\n*Grand Total:* $${grandTotal.toFixed(2)}\n*Macros:* ${totalCalories} Cal | ${totalProtein}g Protein\n\nPlease confirm order status and delivery details!`;
+    const url = `https://wa.me/2349044897455?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   };
 
   return (
@@ -205,20 +214,30 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
               </div>
 
-              <button
-                disabled={isCheckingOut}
-                onClick={handleSimulateCheckout}
-                className="w-full bg-[#FF7A00] hover:bg-[#e06b00] text-white font-bold py-4 rounded-full shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-base"
-              >
-                {isCheckingOut ? (
-                  <span>Processing Order...</span>
-                ) : (
-                  <>
-                    <span>Proceed to Checkout</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
-              </button>
+              <div className="space-y-2.5 pt-1">
+                <button
+                  onClick={handleWhatsAppOrder}
+                  className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-3.5 rounded-full shadow-md transition-all duration-200 flex items-center justify-center gap-2 text-sm"
+                >
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                  <span>Order via WhatsApp (+234 90 4489 7455)</span>
+                </button>
+
+                <button
+                  disabled={isCheckingOut}
+                  onClick={handleSimulateCheckout}
+                  className="w-full bg-[#FF7A00] hover:bg-[#e06b00] text-white font-bold py-3.5 rounded-full shadow-md transition-all duration-200 flex items-center justify-center gap-2 text-sm"
+                >
+                  {isCheckingOut ? (
+                    <span>Processing Order...</span>
+                  ) : (
+                    <>
+                      <span>Proceed to Web Checkout</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
           )}
 

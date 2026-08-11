@@ -18,6 +18,7 @@ import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { MealModal } from './components/MealModal';
 import { VideoModal } from './components/VideoModal';
+import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
 
 export default function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -136,6 +137,9 @@ export default function App() {
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
       />
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <WhatsAppFloatingButton />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Instagram, Twitter, Facebook, Youtube, Heart, MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowUp, Instagram, Twitter, Facebook, Youtube, Heart, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { LogoComponent } from './LogoComponent';
 
 export const Footer: React.FC = () => {
@@ -79,7 +79,18 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#FF7A00] shrink-0" />
-                <span>+234 800 348 3327 (FIT FEAST)</span>
+                <span>+234 90 4489 7455</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 fill-current" />
+                <a
+                  href="https://wa.me/2349044897455?text=Hello%20Fit%20Feast%20Kitchen!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline text-[#25D366] font-semibold"
+                >
+                  WhatsApp: +234 90 4489 7455
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#FF7A00] shrink-0" />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Menu, X, Upload } from 'lucide-react';
+import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
 import { LogoComponent } from './LogoComponent';
 
 interface NavbarProps {
@@ -83,7 +83,19 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onOpenCart }) => 
         </nav>
 
         {/* Right Side: Cart & CTA Button */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3">
+          {/* WhatsApp Direct Chat */}
+          <a
+            href="https://wa.me/2349044897455?text=Hello%20Fit%20Feast%20Kitchen!%20I'd%20like%20to%20order%20meals."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-[#25D366] bg-[#25D366]/10 hover:bg-[#25D366]/20 rounded-full transition-all border border-[#25D366]/30 shadow-sm"
+          >
+            <MessageCircle className="w-4 h-4 fill-current" />
+            <span>WhatsApp</span>
+          </a>
+
           {/* Cart Icon */}
           <button
             onClick={onOpenCart}
@@ -101,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onOpenCart }) => 
           {/* CTA Order Now Button */}
           <a
             href="#menu"
-            className="bg-[#FF7A00] hover:bg-[#e06b00] text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
+            className="bg-[#FF7A00] hover:bg-[#e06b00] text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
           >
             <span>Order Now</span>
             <span className="w-2 h-2 rounded-full bg-white/80 animate-ping" />
@@ -154,6 +166,15 @@ export const Navbar: React.FC<NavbarProps> = ({ cartItemCount, onOpenCart }) => 
           </div>
 
           <div className="pt-2 border-t border-gray-100 flex flex-col gap-3">
+            <a
+              href="https://wa.me/2349044897455?text=Hello%20Fit%20Feast%20Kitchen!%20I'd%20like%20to%20order%20meals."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-center py-3 rounded-xl shadow-md text-base flex items-center justify-center gap-2"
+            >
+              <MessageCircle className="w-5 h-5 fill-current" />
+              <span>Chat on WhatsApp</span>
+            </a>
             <a
               href="#menu"
               onClick={() => setMobileMenuOpen(false)}

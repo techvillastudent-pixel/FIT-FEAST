@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Instagram, Twitter, Facebook, Youtube, MessageCircle } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -63,13 +63,34 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
+                  <div className="p-3 bg-[#25D366]/10 text-[#25D366] rounded-2xl shrink-0">
+                    <MessageCircle className="w-5 h-5 fill-current" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">WhatsApp & Direct Line</h4>
+                    <p className="text-sm font-semibold text-[#0B3D2E] mt-0.5">
+                      +234 90 4489 7455
+                    </p>
+                    <a
+                      href="https://wa.me/2349044897455?text=Hello%20Fit%20Feast%20Kitchen!%20I'd%20like%20to%20order%20or%20make%20an%20inquiry."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline mt-1"
+                    >
+                      <span>Chat on WhatsApp</span>
+                      <MessageCircle className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
                   <div className="p-3 bg-[#FF7A00]/10 text-[#FF7A00] rounded-2xl shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Direct Hotline</h4>
+                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Kitchen Hotline</h4>
                     <p className="text-sm font-semibold text-[#0B3D2E] mt-0.5">
-                      +234 800 348 3327 (FIT FEAST)
+                      +234 90 4489 7455
                     </p>
                   </div>
                 </div>
