@@ -1,0 +1,6 @@
+{
+  "name": "Fit Feast Kitchen",
+  "description": "Healthy meal prep and clean food delivery platform for Fit Feast Kitchen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
